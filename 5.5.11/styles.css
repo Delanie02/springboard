@@ -37,7 +37,7 @@ body
 .exercise-3,
 .exercise-4
 {
-
+ margin-bottom: 20px;
 }
 
 .exercise-1 div,
@@ -59,7 +59,9 @@ body
 .exercise-2 .blue,
 .exercise-2 .yellow
 {
-
+  position: relative;
+  top: 10px;
+  left: 10px;
 }
 
 /* Exercise 3 */
@@ -77,7 +79,9 @@ body
 .exercise-3 .blue,
 .exercise-3 .yellow
 {
-
+  position: relative;
+  top: 20px;
+  left: 20px;
 }
 
 /* Exercise 4 */
@@ -89,10 +93,15 @@ body
 
 .exercise-4 .blue
 {
+  position: absolute;
+  right: 0;
 
 }
 
 .exercise-4 .yellow
 {
+
+  position: absolute;
+  right: 0;
 
 }
