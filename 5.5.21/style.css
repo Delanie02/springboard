@@ -2,8 +2,6 @@ html {
     font-size: 62.5%;
     /* 1rem = 10px*/
     background-color: #F9FAF9;
-    color: #2a2d31;
-    text-align: left;
 }
 
 body {
@@ -13,28 +11,35 @@ body {
     /* 16px */
     font-weight: 400;
     line-height: 1.75;
+    color: #2a2d31;
+    text-align: left;
 }
 
 header {
     background-color: #D8CFE8;
     display: flex;
-    flex-direction: row;
-    /* For exercise 2.2, I added this flex direction to complete the minimum requirements to move the profile picture to the top left, but prefer the original layout.
+    flex-direction: column;
+    /* For exercise 2.2, I added flex-direction: row-reverse to complete the minimum requirements to move the profile picture to the top left, but prefer the original layout.
     flex-direction: row-reverse; */
     align-items: center;
-    /* For exercise 2.2, I added this align items to complete the minimum requirements to move the contact info (LinkedIn in this case) to the bottom right, in addition to the flex-direction: row-reverse above.
+    /* For exercise 2.2, I added align-items: flex-end to complete the minimum requirements to move the contact info (LinkedIn in this case) to the bottom right, in addition to the flex-direction: row-reverse above.
     align-items: flex-end; */
     justify-content: center;
-    text-align: right;
-    padding: 0rem 0rem 0rem 4.8rem;
+    text-align: center;
+    padding: 0;
     margin: 0;
 }
 
 header img {
-    height: 60vh;
+    height: 40vh;
     width: auto;
-    /* I did this to complete the minimum requirements for exercise 2.1, but prefer the rectangular aesthetic.
+    /* I created a border-radius to complete the minimum requirements for exercise 2.1, but prefer the rectangular aesthetic.
     border-radius: 100%; */
+}
+
+/* Sets default font styles for headings */
+h1, h2, h3 {
+    font-family: "Merriweather Sans", sans-serif;
 }
 
 /* Used for LinkedIn and Github links */
@@ -57,19 +62,17 @@ header a:hover {
 
 section{
     display: flex;
-    flex-direction: row;
-    gap: 4.8rem;
+    flex-direction: column;
+    gap: 1.2rem;
     justify-content: center;
 }
 
 .experience {
-    max-width: 64rem;
-    padding: 4.8rem;
+    padding: 2.4rem;
 }
 
 .education-skills-methods {
-    padding: 4.8rem;
-    max-width: 32rem;
+    padding: 2.4rem;
     background-color: #F2F2F2;
 }
  
@@ -131,6 +134,7 @@ p {
 
 form {
     display: flex;
+    /* The flex-direction property sets up the side-by-side layout of labels and inputs */
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
@@ -149,21 +153,15 @@ input, textarea, select, button{
 }
 
 .form-labels {
-    position: relative;
-    text-align: right;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
     gap: 1.2rem;
+    min-width: 16rem;
 }
 
 .form-inputs {
-    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
     gap: 1.2rem;
 }
 
@@ -171,10 +169,11 @@ input:focus, textarea:focus, select:focus, button:focus {
     outline-color: #6F4C7B;
 }
 
-/* This styles the form labels such that they align horizontally with their inputs */
 label{
+    /* This pads the form labels such that they equate and thus align horizontally with their inputs */
     padding: 0.8rem;
     font-weight: 700;
+    text-align: right;
 }
 
 button{
@@ -188,4 +187,35 @@ button{
 
 button:hover {
     background-color: #6F4C7B;
+}
+
+@media (min-width: 800px) {
+
+    /* Changes the header layout to be side-by-side on larger screens */
+    header {
+        flex-direction: row;
+        text-align: right;
+        padding: 0 0 0 4.8rem;
+    }
+
+    /* Changes the header img to take up more of the screen on larger screens */
+    header img {
+        height: 60vh;
+    }
+
+    /* Changes the layout to two column for experience and skills content on larger screens*/
+    section {
+        flex-direction: row;
+        gap: 4.8rem;
+    }
+
+    .experience {
+        max-width: 64rem;
+        padding: 4.8rem;
+    }
+
+    .education-skills-methods {
+        padding: 4.8rem;
+        max-width: 32rem;
+    }
 }
