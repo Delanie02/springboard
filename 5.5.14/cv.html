@@ -359,17 +359,17 @@
                 </label>
             </div>
             <div class="form-inputs">
-                <input type="text" name="first-name" placeholder="First name" />
-                <input type="text" name="last-name" placeholder="Last name" />
-                <input type="text" name="company" placeholder="Company" />
-                <input type="email" name="email" placeholder="Email" />
-                <select name="reason-for-contact">
+                <input type="text" name="first-name" id="first-name" required placeholder="First name" />
+                <input type="text" name="last-name" id="last-name" required placeholder="Last name" />
+                <input type="text" name="company" id="company"placeholder="Company" />
+                <input type="email" name="email" id="email" required placeholder="Email" />
+                <select name="reason-for-contact" id="reason-for-contact">
                     <option value="" disabled selected>Reason for contact</option>
                     <option value="job opportunity">Job opportunity</option>
                     <option value="networking">Networking</option>
                     <option value="other">Other</option>
                 </select>
-                <textarea name="message" placeholder="Your message"></textarea>
+                <textarea name="message" id="message" required placeholder="Your message"></textarea>
                 <button type="submit">Send</button>
             </div>
         </form>
