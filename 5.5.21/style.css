@@ -46,6 +46,7 @@ header a {
     line-height: 1.5;
     color: #3A1F4E;
     text-decoration: none;
+    transition: color 0.3s ease;
     /* I addeded this text transform to complete the minimum requriements for exercise 2.1, but don't actually like the aesthetic.
     text-transform: uppercase; */
 }
@@ -89,7 +90,7 @@ h2 {
     /* 32px */
     font-weight: 700;
     line-height: 1.5;
-    color: #6F4C7B;
+    color: #3A1F4E;
     margin: 4.8rem 0 2.4rem;
 }
 
@@ -177,9 +178,14 @@ label{
 }
 
 button{
-    background-color: #6F4C7B;
+    background-color: #3A1F4E;
     color: #FFFFFF;
     cursor: pointer;
     padding: 0.8em 2.4em;
     width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #6F4C7B;
 }
