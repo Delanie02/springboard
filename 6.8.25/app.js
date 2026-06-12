@@ -61,7 +61,7 @@ function decrypt(encryptedMessage, shift) {
     for (const char of filtered) {
         decryptedMessage += encryptLetter(char, -shift);
     }
-    return encrypt(encryptedMessage, -shift);
+    return decryptedMessage;
 }
 
 
