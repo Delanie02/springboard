@@ -24,7 +24,7 @@ function createAccount(newAccountId, newAccountOwner) {
     throw new Error("Account ID must be a valid, positive, finite number");
   }
 
-  if (newAccountOwner !== "string" || newAccountOwner.trim() === "") {
+  if (typeof newAccountOwner !== "string" || newAccountOwner.trim() === "") {
     throw new Error("Account Owner must be a valid, non-empty string");
   }
 
@@ -61,21 +61,19 @@ function depositMoney(accountId, amount) {
   }
 
   account.balance += amount;
+  return account;
 }
 
 function withdrawMoney(accountId, amount) {
   isValidNumber(amount);
   const account = getAccountById(accountId);
 
-  if (!account) {
-    throw new Error("Account not found.");
-  }
-
   if (amount > account.balance) {
     throw new Error("Withdrawal amount exceeds balance.");
   }
 
   account.balance -= amount;
+  return account;
 }
 
 function transferMoney(fromAccountId, toAccountId, amount) {
@@ -83,13 +81,9 @@ function transferMoney(fromAccountId, toAccountId, amount) {
   const fromAccount = getAccountById(fromAccountId);
   const toAccount = getAccountById(toAccountId);
 
-  // if (!fromAccount) {
-  //   throw new Error("Source account not found.");
-  // }
-
-  // if (!toAccount) {
-  //   throw new Error("Transfer account not found.");
-  // }
+  if (fromAccountId === toAccountId) {
+    throw new Error("Cannot transfer to the same account.");
+  }
 
   if (amount > fromAccount.balance) {
     throw new Error("Insufficient balance");
