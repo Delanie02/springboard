@@ -6,8 +6,12 @@ Examples:
     doubleValues([5,1,2,3,10]) // [10,2,4,6,20]
 
 */
-function doubleValues(arr){
-    
+function doubleValues(arr) {
+  let doubledArray = [];
+  arr.forEach(function (val) {
+    doubledArray.push(val * 2);
+  });
+  return doubledArray;
 }
 
 /*
@@ -18,8 +22,14 @@ Examples:
     onlyEvenValues([5,1,2,3,10]) // [2,10]
 
 */
-function onlyEvenValues(arr){
-    
+function onlyEvenValues(arr) {
+  let evenArray = [];
+  arr.forEach(function (val) {
+    if (val % 2 === 0) {
+      evenArray.push(val);
+    }
+  });
+  return evenArray;
 }
 
 /*
@@ -30,21 +40,38 @@ Examples:
     showFirstAndLast(['hi', 'goodbye', 'smile']) // ['hi', 'ge', 'se']
 
 */
-function showFirstAndLast(arr){
-    
+function showFirstAndLast(arr) {
+  let newArray = [];
+  arr.forEach(function (val) {
+    newArray.push(val[0] + val.slice(-1));
+  });
+  return newArray;
 }
 
 /*
 Write a function called addKeyAndValue which accepts an array of objects, a key, and a value and returns the array passed to the function with the new key and value added for each object 
 
 Examples:
-    addKeyAndValue([{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}], 'title', 'instructor') 
+    addKeyAndValue([
+    {name: 'Elie'}, 
+    {name: 'Tim'}, 
+    {name: 'Matt'}, 
+    {name: 'Colt'}], 
+    'title', 
+    'instructor') 
     
-    // [{name: 'Elie', title:'instructor'}, {name: 'Tim', title:'instructor'}, {name: 'Matt', title:'instructor'}, {name: 'Colt', title:'instructor'}]
+    // [
+    {name: 'Elie', title:'instructor'}, 
+    {name: 'Tim', title:'instructor'}, 
+    {name: 'Matt', title:'instructor'}, 
+    {name: 'Colt', title:'instructor'}]
 
 */
-function addKeyAndValue(arr,key,value){
-    
+function addKeyAndValue(arr, key, value) {
+  arr.forEach(function (val) {
+    val[key] = value;
+  });
+  return arr;
 }
 
 /*
@@ -57,6 +84,18 @@ Examples:
     vowelCount('hmmm') // {};
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
-function vowelCount(str){
-   
+function vowelCount(str) {
+  let vowelCount = {};
+  let lowerStr = str.toLowerCase();
+  let vowels = ["a", "e", "i", "o", "u"];
+  Array.from(lowerStr).forEach(function (val) {
+    if (vowels.indexOf(val) !== -1) {
+      if (vowelCount[val]) {
+        vowelCount[val]++;
+      } else {
+        vowelCount[val] = 1;
+      }
+    }
+  });
+  return vowelCount;
 }
