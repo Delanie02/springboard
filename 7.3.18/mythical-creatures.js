@@ -55,7 +55,11 @@ function findGriffin(arr) {
 // Use the find method to locate the first creature last seen in "Enchanted Forest".
 
 function forestCreature(arr) {
-  return mythicalCreatures.find(function (value, index, array) {
+  const foundCreature = mythicalCreatures.find(function (value, index, array) {
     return value.lastSeen === "Enchanted Forest";
   });
+
+  if (foundCreature) {
+    console.log(foundCreature.name);
+  }
 }
