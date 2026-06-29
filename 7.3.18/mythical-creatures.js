@@ -40,4 +40,22 @@ function firstWater(arr) {
 
 // Use the findIndex method to locate the index of the "Griffin" in the mythical creatures array and log it to the console.
 
+function findGriffin(arr) {
+  const GriffinIndex = mythicalCreatures.findIndex(
+    function (value, index, array) {
+      return value.name === "Griffin";
+    },
+  );
+
+  if (GriffinIndex) {
+    console.log(GriffinIndex);
+  }
+}
+
 // Use the find method to locate the first creature last seen in "Enchanted Forest".
+
+function forestCreature(arr) {
+  return mythicalCreatures.find(function (value, index, array) {
+    return value.lastSeen === "Enchanted Forest";
+  });
+}
