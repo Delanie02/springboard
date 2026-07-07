@@ -81,7 +81,7 @@ function mixPotion({
   ingredient1 = "Water",
   ingredient2 = "Fireflower",
   ...otherIngredients
-}) {
+} = {}) {
   console.log(
     `Ingredient 1: ${ingredient1}, Ingredient 2: ${ingredient2}, Other ingredients:`,
     otherIngredients,
