@@ -22,7 +22,36 @@ const items = document.getElementsByClassName("item");
 
 for (let item of items) {
   item.style.border = "2px solid #ffffff";
-};
+}
 
 // Task 5
 
+const task5 = document.querySelector("a");
+
+task5.href = "https://www.springboard.com/";
+
+// Task 6
+
+const task6 = document.querySelector("input");
+
+task6.value = "DOM Master";
+
+// Task 7
+
+const task7 = document.getElementById("task7");
+
+task7.classList.add("new-class");
+
+// Task 8
+
+const newButton = document.createElement("button");
+
+const task8 = document.getElementById("task8");
+
+task8.append(newButton);
+
+// Task 9
+
+const task9 = document.getElementById("task9");
+
+task9.remove();
