@@ -14,8 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   colorForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    boxColor = colorInput.value;
-    // console.log(boxColor);
+    boxColor = colorInput.value.trim(); // added trim after seeing the solution code to remove whitespace.
     const boxes = document.getElementsByClassName("box");
     for (const box of boxes) {
       box.style.backgroundColor = boxColor;
@@ -59,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // 9. To display a box's ID back when the mouse leaves after displaying the box's page coordinates, listen to the mouse out events in the document. If the event's target's class list contains the value `box`, get the ID from the box's data attributes and display it.
   document.addEventListener("mouseout", function (e) {
     if (e.target.classList.contains("box")) {
-      console.log(e.target.dataset.boxId);
+      // console.log(e.target.dataset.boxId);
       e.target.textContent = `${e.target.dataset.boxId}`;
     }
   });
