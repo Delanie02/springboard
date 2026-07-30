@@ -49,8 +49,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // 8. To display a box's page coordinates, listen to the mouse over events in the document. If the event's target's class list contains the value `box`, display the coordinates.
+  document.addEventListener("mouseover", function (e) {
+    if (e.target.classList.contains("box")) {
+      // console.log(e.target.pageX);
+      e.target.textContent = `Coordinates: X = ${e.pageX}, Y = ${e.pageY}`;
+    }
+  });
 
   // 9. To display a box's ID back when the mouse leaves after displaying the box's page coordinates, listen to the mouse out events in the document. If the event's target's class list contains the value `box`, get the ID from the box's data attributes and display it.
+  document.addEventListener("mouseout", function (e) {
+    if (e.target.classList.contains("box")) {
+      console.log(e.target.dataset.boxId);
+      e.target.textContent = `${e.target.dataset.boxId}`;
+    }
+  });
 
   // 10. To create a new box when the `N` key is pressed, listen to the key-down events in the document. If the key is `N` (check both upper and lower cases), call the function that adds a new box. Remember to ignore the event if it is triggered from the color input element.
+  document.addEventListener("keydown", function (e) {
+    if ((e.key === "N" || e.key === "n") && e.target !== colorInput) {
+      newBox();
+    }
+  });
 });
