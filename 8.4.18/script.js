@@ -7,27 +7,46 @@ document.addEventListener("DOMContentLoaded", function () {
   const colorInput = document.getElementById("color-input");
 
   // 3. Create variables to store the box color and counter for the box ID.
-  let boxColor = colorInput.value;
+  let boxColor = "";
   let boxID = 0;
 
   // 4. When the form is submitted, get the value from the color input element from Step 2 and set this color to all boxes (to get all boxes, use the class name `box`). Remember to reset the color input element's value and store the color in the box color variable we created in Step 3.
 
-  const submitColor = document.querySelector("form button");
-  console.log(submitColor);
-
-  submitColor.addEventListener("click", function(e) {
-    boxColor.value;
+  colorForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    boxColor = colorInput.value;
+    // console.log(boxColor);
+    const boxes = document.getElementsByClassName("box");
+    for (const box of boxes) {
+      box.style.backgroundColor = boxColor;
+    }
+    colorInput.value = "";
+    // console.log(boxColor);
   });
 
   // 5. Create a function that adds a new box. In this function, set the box ID as content, the class name, and the background color from the box color variable we created in Step 3. Besides, set the box ID to a data attribute. You'll need this attribute to set the display text back to ID when the mouse leaves. Since we used this counter ID, increment it using the counter variable we created in Step 3 to keep its uniqueness.
-  newBoxButton.addEventListener("click", function (e) {
+  function newBox() {
     const newBox = document.createElement("div");
+    newBox.textContent = `${boxID}`;
+    newBox.className = "box";
+    newBox.style.backgroundColor = `${boxColor}`;
+    newBox.dataset.boxId = `${boxID}`;
     boxContainer.append(newBox);
-  })
+    // console.log(newBox);
+    boxID += 1;
+    // console.log(boxID);
+  }
 
   // 6. When the new box button is clicked, call the function that we created above that adds a new box.
+  newBoxButton.addEventListener("click", newBox);
 
   // 7. To remove a box, listen to the double-click events in the document. If the event's target's class list contains the value `box`, remove the element.
+
+  document.addEventListener("dblclick", function (e) {
+    if (e.target.classList.contains("box")) {
+      e.target.remove();
+    }
+  });
 
   // 8. To display a box's page coordinates, listen to the mouse over events in the document. If the event's target's class list contains the value `box`, display the coordinates.
 
