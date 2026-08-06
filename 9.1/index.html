@@ -34,42 +34,55 @@
       <i class="fa-solid fa-font" style="color: #22d3ee"></i>
       <label for="top-text">Meme top text: </label>
       <br />
-      <input
-        type="text"
-        id="top-text"
-        name="top-text"
-        required
-        minlength="1"
-        class="input"
-        placeholder="One does not simply..."
-      />
+      <div class="input-group">
+        <input
+          type="text"
+          id="top-text"
+          name="top-text"
+          required
+          minlength="1"
+          class="input"
+          placeholder="One does not simply..."
+        />
+        <span class="validation-icon"></span>
+      </div>
       <br />
+
       <i class="fa-solid fa-font" style="color: #22d3ee"></i>
       <label for="bottom-text">Meme bottom text: </label>
       <br />
-      <input
-        type="text"
-        id="bottom-text"
-        name="bottom-text"
-        required
-        minlength="1"
-        class="input"
-        placeholder="walk into Mordor"
-      />
+      <div class="input-group">
+        <input
+          type="text"
+          id="bottom-text"
+          name="bottom-text"
+          required
+          minlength="1"
+          class="input"
+          placeholder="walk into Mordor"
+        />
+        <span class="validation-icon"></span>
+      </div>
       <br />
+
       <i class="fa-solid fa-link" style="color: #22d3ee"></i
       ><label for="image-URL">Meme image URL: </label>
       <br />
-      <input
-        type="url"
-        id="image-URL"
-        name="image-URL"
-        required
-        minlength="1"
-        class="input"
-        placeholder="https://plus.unsplash.com/"
-      />
+
+      <div class="input-group">
+        <input
+          type="url"
+          id="image-URL"
+          name="image-URL"
+          required
+          minlength="1"
+          class="input"
+          placeholder="https://plus.unsplash.com/"
+        />
+        <span class="validation-icon"></span>
+      </div>
       <br />
+
       <input type="submit" id="submit-meme" />
     </form>
     <script src="app.js"></script>
