@@ -3,19 +3,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Meme Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- The HTML page shows a form with three input options - Top Text, Bottom Text, Image - and a submit button -->
+    <!-- The HTML page shows a form with three input options - Top Text, Bottom Text, Image - and a submit button. The form fields need to have validation so they will not submit if a field is missing. -->
+    <div class="header">
+      <p>
+        <i class="fa-regular fa-image" style="color: #22d3ee"></i> MEME
+        GENERATOR
+      </p>
+      <h1>Build your meme.</h1>
+      <p>All fields are required.</p>
+    </div>
+
     <form>
+      <i class="fa-solid fa-font" style="color: #22d3ee"></i>
       <label for="top-text">Meme top text: </label>
-      <input type="text" id="top-text" name="top-text" />
       <br />
+      <input
+        type="text"
+        id="top-text"
+        name="top-text"
+        required
+        minlength="1"
+        class="input"
+        placeholder="One does not simply..."
+      />
+      <br />
+      <i class="fa-solid fa-font" style="color: #22d3ee"></i>
       <label for="bottom-text">Meme bottom text: </label>
-      <input type="text" id="bottom-text" name="bottom-text" />
       <br />
-      <label for="image-URL">Meme image URL: </label>
-      <input type="text" id="image-URL" name="image-URL" />
+      <input
+        type="text"
+        id="bottom-text"
+        name="bottom-text"
+        required
+        minlength="1"
+        class="input"
+        placeholder="walk into Mordor"
+      />
+      <br />
+      <i class="fa-solid fa-link" style="color: #22d3ee"></i
+      ><label for="image-URL">Meme image URL: </label>
+      <br />
+      <input
+        type="url"
+        id="image-URL"
+        name="image-URL"
+        required
+        minlength="1"
+        class="input"
+        placeholder="https://plus.unsplash.com/"
+      />
       <br />
       <input type="submit" id="submit-meme" />
     </form>
