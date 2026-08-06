@@ -182,4 +182,5 @@ button {
   background-repeat: no-repeat;
   width: 100%;
   aspect-ratio: 16/9;
+  border-radius: 4px;
 }

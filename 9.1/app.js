@@ -48,16 +48,19 @@ function newMeme(event) {
   newMeme.className = "meme";
   body.append(newMeme);
 
-  // The form boxes should clear out automatically after the submit is clicked.
-  topText.value = "";
-  bottomText.value = "";
-  imageURL.value = "";
+  // The form boxes should clear out automatically after the submit is clicked. Initially I reset the values to empty strings, but that triggered the invalid states to show so I asked Copilot and it suggested form reset instead, which works.
+  form.reset();
+  // topText.value = "";
+  // bottomText.value = "";
+  // imageURL.value = "";
 }
 
-// Users should be able to click on a button to delete/remove a meme from the page. I originally had the listener on the button itself and just as "e.target.remove" and asked Copilot why it wasn't working, which revealed two problems. One, I needed event delegation since the button doesn't exist until a meme is created. So I adjusted the listener to the parent, the form. Then I adjusted the remove to be on the parent element, which is the meme.
+// Users should be able to click on a button to delete/remove a meme from the page. I originally had the listener on the button itself and just as "e.target.remove" and asked Copilot why it wasn't working, which revealed two problems. One, I needed event delegation since the button doesn't exist until a meme is created. So I adjusted the listener to the parent, the form. Then I adjusted the remove to be on the parent element, which is the meme. When I changed my button to be an icon, this broke the button because now the parent was the button. I asked Copilot and it suggested the closest method below..
 
 body.addEventListener("click", function (e) {
-  if (e.target.matches("button")) {
-    e.target.parentElement.remove();
+  const button = e.target.closest("button");
+
+  if (button) {
+    button.closest(".meme").remove();
   }
 });
