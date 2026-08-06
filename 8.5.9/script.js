@@ -6,13 +6,10 @@ document.addEventListener("DOMContentLoaded", function ()
 	const colorInput = document.getElementById("color-input");
 
 	// TODO: Load the note color from the local storage.
-	let noteColor = null; // Stores the selected note color from the form.
-	noteColor = localStorage.getItem("noteColor");
+	let noteColor = localStorage.getItem("noteColor") || null; // Stores the selected note color from the form.
 	
 	// TODO: Load the note ID counter from the local storage.
-	let noteIdCounter = 0; // Counter for assigning unique IDs to new notes.
-	const savedNoteIdCounter = Number(localStorage.getItem("noteIdCounter"));
-	noteIdCounter = Number.isNaN(savedNoteIdCounter) ? 0 : savedNoteIdCounter;
+	let noteIdCounter = Number(localStorage.getItem("noteIdCounter")) || 0; // Counter for assigning unique IDs to new notes.
 
 	// TODO: Load the notes from the local storage.
 	let notes = [];
