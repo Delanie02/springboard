@@ -1,6 +1,6 @@
 // 1. Analyze the API: Visit `https://reqres.in/` website and understand the usage of the API.Note down the API URL.
 
-// I signed up for a free account and then was able to copy the following fetch code from the API Playground (https://app.reqres.in/playground):
+// I signed up for a free account and then got the following fetch code from the API Playground (https://app.reqres.in/playground):
 
 // await fetch("https://reqres.in/api/users?page=2", {
 //   method: "GET",
@@ -22,17 +22,7 @@
 
 // 2. Infiltrate the System: Use the "LOGIN - SUCCESSFUL" POST method to gain access to the system. Display the token or the error in the`system-message` container. Store the token in a variable. (The correct email and password are hidden in the API docs.)
 
-// async function test() {
-//   const res = await axios.get("https://reqres.in/api/users", {
-//     headers: {
-//       "x-api-key": "reqres_027e85a448b3420f9fa8b63dd085b5e6",
-//     },
-//   });
-//   console.log(res);
-// }
-// test();
-
-// I used Gemini to ask the API docs how to do this, which gave me  code I used as a reference.
+// I used the login (success) request builder then went to the API's documentation page and asked Gemini how to use it to display the and store the token, which gave me  code I used as a reference.
 
 let authToken = null;
 
@@ -89,4 +79,31 @@ loginUser("eve.holt@reqres.in", "cityslicka");
 
 // 3. Sneak Away from the System: Mimic the logout behavior by clearing the token when the `logout-button` is pressed. (No API requests will be made here.)
 
+const logoutButton = document.getElementById("logout-button");
+
+logoutButton.addEventListener("click", () => {
+  authToken = null;
+});
+
 // 4. Gather Intelligence: Once inside, your task is to list black-hat hackers using the "LIST USERS" GET method, incorporating both the `page` and `delay` query parameters in one single request. (Check being inside using the token variable. If you logged out, you shouldn't be listing.)
+
+// The list users request builder gave me the following code to reference.
+// await fetch("https://reqres.in/api/users?page=2&delay=1", {
+//   method: "GET",
+//   headers: {
+//     "x-api-key": "reqres_027e85a448b3420f9fa8b63dd085b5e6",
+//   },
+// });
+
+async function listUsers() {
+  const response = await axios.get(
+    "https://reqres.in/api/users?page=2&delay=1",
+    {
+      headers: {
+        "x-api-key": "reqres_027e85a448b3420f9fa8b63dd085b5e6",
+      },
+    },
+  );
+  console.log(response);
+}
+listUsers();
