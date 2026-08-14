@@ -40,9 +40,9 @@
 
 const searchText = document.getElementById("search-text");
 const submitSearch = document.getElementById("submit-search");
+const removeAll = document.getElementById("remove-all");
 const form = document.getElementById("giphy-form");
 const gifs = document.getElementById("gif-results");
-const gifResults = document.getElementById("gif-results");
 const myApiKey = "685KW2SvLEhUINeQrW9xZnQqJBl1SywM";
 
 let memeSearchText = "";
@@ -106,10 +106,16 @@ async function getGif(searchTerm, apiKey) {
   }
 }
 
-gifResults.addEventListener("click", function (e) {
+gifs.addEventListener("click", function (e) {
   const button = e.target.closest("button");
 
   if (button) {
     button.closest(".meme").remove();
   }
+});
+
+removeAll.addEventListener("click", function (e) {
+  const memes = document.getElementsByClassName("meme");
+  console.log(memes);
+  Array.from(memes).forEach((meme) => meme.remove());
 });

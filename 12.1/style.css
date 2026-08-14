@@ -45,7 +45,7 @@ section {
   overflow-y:auto;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat (autofill, minmax(32rem, 1fr));
+  grid-template-columns: repeat (autofill, minmax(150px, 1fr));
   /* gap: 1.6rem; */
   place-items: left;
   padding: 3.2rem;
