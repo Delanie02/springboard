@@ -1,26 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Giphy Party</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <main>
-      <h1>Giphy Party</h1>  
+      <h1>Giphy Party</h1>
       <div>
         <!-- Think about placing the form here -->
-
+        <form id="giphy-form">
+          <label for="search-text">Search for a meme:</label>
+          <br />
+          <div class="input-group">
+            <input
+              type="text"
+              ,
+              id="search-text"
+              ,
+              name="search-text"
+              class="input"
+            />
+          </div>
+          <br />
+          <input type="submit" , id="submit-search" />
+        </form>
       </div>
-      <div>
+      <div id="gif-results">
         <!-- Think about displaying the results here -->
         <!-- Or you can build out your own custom HTML structure -->
 
         ... Your GIFs here ..
+        <!-- <img class="meme" id="test"/> -->
       </div>
-     
     </main>
     <!-- Axios is already imported here for your convenience -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
