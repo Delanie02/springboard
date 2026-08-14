@@ -3,17 +3,11 @@
 html {
   font-size: 62.5%;
   /* 1 rem = 10px */
-  display: grid;
-  place-items: center;
 }
 
 body {
-  width: 418px;
-  background-color: #08080d;
-}
-
-.header {
-  margin: 3.2rem 0;
+  background-color: #141420;
+  margin: 0;
 }
 
 h1 {
@@ -23,7 +17,6 @@ h1 {
   font-weight: 600;
   font-style: normal;
   color: #e2e2ee;
-  margin: 0;
 }
 
 p {
@@ -36,10 +29,32 @@ p {
   margin: 8px 4px;
 }
 
+section {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.meme-form {
+  margin: 3.2rem;
+}
+
+.gif-results {
+  background-color: #08080d;
+  flex-grow: 1;
+  overflow-y:auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat (autofill, minmax(32rem, 1fr));
+  /* gap: 1.6rem; */
+  place-items: left;
+  padding: 3.2rem;
+}
+
 form {
-  background-color: #141420;
-  border-radius: 4px;
-  padding: 2.4rem;
+  /* background-color: #141420; */
+  /* border-radius: 4px;
+  padding: 2.4rem; */
 }
 
 label {
@@ -49,7 +64,7 @@ label {
   font-style: normal;
   color: #a0a0b8;
   font-size: 1.2rem;
-  padding: 1rem;
+  padding: 0 1rem 1rem 0;
 }
 
 .input {
@@ -73,51 +88,6 @@ input::placeholder {
   color: #6b6b88;
 }
 
-/* I adapted the below input-group and validation-icon code from Google */
-
-.input-group {
-  position: relative;
-  /* display: inline-block; */
-}
-
-.validation-icon {
-  position: absolute;
-  right: 0;
-  top: 1rem;
-  display: none;
-}
-
-input:user-valid {
-  border-bottom: 0.25px solid #22d3ee;
-}
-
-input:user-invalid {
-  border-bottom: 0.25px solid #f43f5e;
-}
-
-/* Toggle icon display and content based on input state */
-input:user-valid + .validation-icon {
-  display: inline-block;
-  color: #22d3ee;
-}
-input:user-valid + .validation-icon::before {
-  content: "\f058";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  font-size: 1.2rem;
-}
-
-input:user-invalid + .validation-icon {
-  display: inline-block;
-  color: #f43f5e;
-}
-input:user-invalid + .validation-icon::before {
-  content: "\f057";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  font-size: 1.2rem;
-}
-
 .input:focus {
   outline: none;
   border-bottom-color: #22d3ee;
@@ -136,31 +106,10 @@ input[type="submit"] {
   font-style: normal;
   border: none;
   border-radius: 4px;
+  margin-bottom: 1.6rem;
 }
 
-.top-text {
-  font-family: "Outfit", sans-serif;
-  font-size: 2.4rem;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  color: #e2e2ee;
-  margin: 0;
-  text-shadow: 0 4px 12px #08080d;
-}
-
-.bottom-text {
-  font-family: "Outfit", sans-serif;
-  font-size: 2.4rem;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  color: #e2e2ee;
-  margin: 0;
-  text-shadow: 0 4px 12px #08080d;
-}
-
-button {
+.remove {
   position: absolute;
   top: 1.2rem;
   right: 1.2rem;
@@ -172,6 +121,21 @@ button {
   text-shadow: 0 4px 12px #08080d;
 }
 
+.remove-all {
+  box-sizing: border-box;
+  background-color: #141420;
+  width: 100%;
+  color: #f43f5e;
+  border: 0.25px solid #f43f5e;
+  padding: 12px;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.6rem;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  border-radius: 4px;
+}
+
 .meme {
   position: relative;
   padding: 2.4rem;
@@ -179,7 +143,19 @@ button {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* width: 100%; */
-  /* aspect-ratio: 16/9; */
   border-radius: 4px;
+}
+
+@media (min-width: 800px) {
+  /* Changes the layout to two column on larger screens*/
+
+  section {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .meme-form {
+      width: 50vw;
+  }
+
 }

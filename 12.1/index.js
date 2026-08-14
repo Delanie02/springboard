@@ -42,6 +42,7 @@ const searchText = document.getElementById("search-text");
 const submitSearch = document.getElementById("submit-search");
 const form = document.getElementById("giphy-form");
 const gifs = document.getElementById("gif-results");
+const gifResults = document.getElementById("gif-results");
 const myApiKey = "685KW2SvLEhUINeQrW9xZnQqJBl1SywM";
 
 let memeSearchText = "";
@@ -68,7 +69,7 @@ async function newMeme(event) {
   const meme = document.createElement("div");
 
   meme.innerHTML = `
-    <button type='button'>
+    <button type='button' class='remove'>
       <i class='fa-solid fa-xmark'></i>
     </button>
   `;
@@ -78,6 +79,7 @@ async function newMeme(event) {
   meme.className = "meme";
 
   gifs.append(meme);
+  form.reset();
 }
 
 async function getGif(searchTerm, apiKey) {
@@ -103,3 +105,11 @@ async function getGif(searchTerm, apiKey) {
     console.log(error);
   }
 }
+
+gifResults.addEventListener("click", function (e) {
+  const button = e.target.closest("button");
+
+  if (button) {
+    button.closest(".meme").remove();
+  }
+});
