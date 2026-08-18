@@ -24,14 +24,13 @@
     <main>
       <section>
         <div class="meme-form">
-          <!-- Think about placing the form here -->
           <h1>Meme generator</h1>
           <form id="giphy-form">
             <label for="search-text"
               >Type a word or phrase to turn into a meme:</label
             >
             <br />
-            <div class="input-group">
+            <div class="input-group" id="input-group">
               <input
                 type="text"
                 ,
@@ -41,17 +40,16 @@
                 class="input"
               />
             </div>
+            <div class="error-message" id="error-message"></div>
             <br />
             <input type="submit" , id="submit-search" , value="Meme-ify" />
             <br />
-            <button type="button" id="remove-all" class="remove-all">Remove All</button>
+            <button type="button" id="remove-all" class="remove-all">
+              Remove All
+            </button>
           </form>
         </div>
-        <div id="gif-results" class="gif-results">
-          <!-- Think about displaying the results here -->
-          <!-- Or you can build out your own custom HTML structure -->
-          <!-- <img class="meme" id="test"/> -->
-        </div>
+        <div id="gif-results" class="gif-results"></div>
       </section>
     </main>
     <!-- Axios is already imported here for your convenience -->

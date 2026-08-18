@@ -38,6 +38,7 @@
 
 // Start by building a simple form with an input for a search term and a submit button. When the user submits the form, use <axios> to make a request to GIPHY for information based on that term.
 
+const errorMessageDiv = document.getElementById("error-message");
 const searchText = document.getElementById("search-text");
 const submitSearch = document.getElementById("submit-search");
 const removeAll = document.getElementById("remove-all");
@@ -58,13 +59,14 @@ form.addEventListener("submit", newMeme);
 
 async function newMeme(event) {
   event.preventDefault();
+  errorMessageDiv.innerHTML = "";
 
   memeSearchText = searchText.value;
   // console.log(memeSearchText);
 
   const gif = await getGif(memeSearchText, myApiKey);
   const { url, height, width } = gif;
-  console.log(url, height, width);
+  // console.log(url, height, width);
 
   const meme = document.createElement("div");
 
@@ -99,9 +101,13 @@ async function getGif(searchTerm, apiKey) {
       response.data.data.images.downsized.width,
     );
 
-    console.log(gif);
+    // console.log(gif);
     return gif;
   } catch (error) {
+    let errorMessage = document.createElement("div");
+    errorMessage.className = "error-message";
+    errorMessage.innerHTML = `${error}`;
+    errorMessageDiv.append(errorMessage);
     console.log(error);
   }
 }
@@ -116,6 +122,6 @@ gifs.addEventListener("click", function (e) {
 
 removeAll.addEventListener("click", function (e) {
   const memes = document.getElementsByClassName("meme");
-  console.log(memes);
+  // console.log(memes);
   Array.from(memes).forEach((meme) => meme.remove());
 });
