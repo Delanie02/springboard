@@ -61,10 +61,21 @@ async function newMeme(event) {
   event.preventDefault();
   errorMessageDiv.innerHTML = "";
 
-  memeSearchText = searchText.value;
+  memeSearchText = searchText.value.trim();
   // console.log(memeSearchText);
 
+  if (!memeSearchText) {
+    const errorMessage = document.createElement("div");
+    errorMessage.className = "error-message";
+    errorMessage.textContent = "Please enter a search term.";
+    errorMessageDiv.append(errorMessage);
+    return;
+  }
+
   const gif = await getGif(memeSearchText, myApiKey);
+  if (!gif) {
+    return;
+  }
   const { url, height, width } = gif;
   // console.log(url, height, width);
 
