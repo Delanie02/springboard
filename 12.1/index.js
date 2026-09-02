@@ -106,7 +106,7 @@ async function getGif(searchTerm, apiKey) {
   } catch (error) {
     let errorMessage = document.createElement("div");
     errorMessage.className = "error-message";
-    errorMessage.innerHTML = `${error}`;
+    errorMessage.textContent = `${error}`;
     errorMessageDiv.append(errorMessage);
     console.log(error);
   }

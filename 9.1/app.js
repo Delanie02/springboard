@@ -37,13 +37,13 @@ function newMeme(event) {
     <button type = "button">
       <i class="fa-solid fa-xmark"></i>
     </button>
-    <h2 class = top-text>
-      ${memeTopText}
+    <h2 class="top-text">
     </h2>
-    <h2 class = bottom-text>
-      ${memeBottomText}
+    <h2 class="bottom-text">
     </h2>
     `;
+  newMeme.querySelector(".top-text").textContent = `${memeTopText}`;
+  newMeme.querySelector(".bottom-text").textContent = `${memeBottomText}`;
   newMeme.style.backgroundImage = `url('${memeURL}')`;
   newMeme.className = "meme";
   body.append(newMeme);
