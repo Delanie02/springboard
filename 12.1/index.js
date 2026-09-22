@@ -97,12 +97,15 @@ async function newMeme(event) {
 
 async function getGif(searchTerm, apiKey) {
   try {
-    const response = await axios.get("http://api.giphy.com/v1/gifs/translate", {
-      params: {
-        api_key: apiKey,
-        s: searchTerm,
+    const response = await axios.get(
+      "https://api.giphy.com/v1/gifs/translate",
+      {
+        params: {
+          api_key: apiKey,
+          s: searchTerm,
+        },
       },
-    });
+    );
     // console.log(response);
     // console.log(response.data.data.images.downsized.url);
 
