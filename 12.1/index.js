@@ -109,10 +109,19 @@ async function getGif(searchTerm, apiKey) {
     // console.log(response);
     // console.log(response.data.data.images.downsized.url);
 
-    let gif = new Meme(
-      response.data.data.images.downsized.url,
-      response.data.data.images.downsized.height,
-      response.data.data.images.downsized.width,
+    const downsizedGif = response.data.data?.images?.downsized;
+    if (!downsizedGif) {
+      const errorMessage = document.createElement("div");
+      errorMessage.className = "error-message";
+      errorMessage.textContent = "No GIFs found. Try a different search term.";
+      errorMessageDiv.append(errorMessage);
+      return;
+    }
+
+    const gif = new Meme(
+      downsizedGif.url,
+      downsizedGif.height,
+      downsizedGif.width,
     );
 
     // console.log(gif);
